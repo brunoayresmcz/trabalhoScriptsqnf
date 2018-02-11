@@ -7,11 +7,6 @@ Route::post('logar', 'LoginController@logar')->name('logar');
 Route::get('logout', 'LoginController@logout')->name('logout');
 
 
-
-Route::group(['middleware' => ['nome_middlware1', 'nome_middleware2']], function() {
-    
-});
-
 /* ========== LIVROS ============ */
 Route::group(['prefix' => '/livros', 'middleware' => ['login']], function() {
     Route::get('/','LivroController@listar')->name('livros.listar');
