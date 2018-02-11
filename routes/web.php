@@ -6,8 +6,14 @@ Route::get('login', 'LoginController@login')->name('login');
 Route::post('logar', 'LoginController@logar')->name('logar');
 Route::get('logout', 'LoginController@logout')->name('logout');
 
+
+
+Route::group(['middleware' => ['nome_middlware1', 'nome_middleware2']], function() {
+    
+});
+
 /* ========== LIVROS ============ */
-Route::group(['prefix' => '/livros'], function() {
+Route::group(['prefix' => '/livros', 'middleware' => ['login']], function() {
     Route::get('/','LivroController@listar')->name('livros.listar');
     Route::get('/novo', 'LivroController@cadastrar')->name('livros.cadastrar');
     Route::post('/salvar', 'LivroController@salvar')->name('livros.salvar');
