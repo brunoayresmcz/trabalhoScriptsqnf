@@ -2,6 +2,7 @@
 	@extends('template')
 	@section('conteudo_principal')
 	<h1>Livros</h1>
+	<h2>Olá {{session('usuario')}} </h2>
 
 		<table class="table table-hover">
 			<thead>

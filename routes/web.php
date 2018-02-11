@@ -4,6 +4,7 @@
 /** LOGIN **/
 Route::get('login', 'LoginController@login')->name('login');
 Route::post('logar', 'LoginController@logar')->name('logar');
+Route::get('logout', 'LoginController@logout')->name('logout');
 
 /* ========== LIVROS ============ */
 Route::group(['prefix' => '/livros'], function() {
