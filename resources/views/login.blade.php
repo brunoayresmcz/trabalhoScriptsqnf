@@ -32,23 +32,25 @@
 	<div id="login">
 			<h1>Login</h1>
 
-
+			@if (session('erro'))
 			<!-- LOGIN ou SENHA INCORRETA -->
 				<div class="alert alert-danger">
-					<strong>Erro!</strong> Login ou Senha Incorreta
+					<strong>Erro!</strong> {{session('erro')}}
 				</div>
 				<!-- FIM [LOGIN OU SENHA INCORRETA] -->
+			@endif
 
-			<form action="" method="post">
-				
+			<form action="{{route('logar')}}" method="post">
+				{{ csrf_field() }}
+
 			  	<div class="form-group">
 			    	<label for="campo-email">Email:</label>
-			    	<input type="email" class="form-control" id="campo-email">
+			    	<input type="email" name="email" class="form-control" id="campo-email">
 			  	</div>
 
 			  	<div class="form-group">
 			    	<label for="campo-senha">Senha:</label>
-			    	<input type="password" class="form-control" id="campo-senha">
+			    	<input type="password"  name="senha" class="form-control" id="campo-senha">
 			  	</div>
   				
   				<button type="submit" class="btn btn-default">Logar	</button>				

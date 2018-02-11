@@ -11,7 +11,8 @@
 	<!-- [FIM] ERRO -->
 
 
-	<form action="" method="post">
+	<form action="{{route('livros.atualizar')}}" enctype="multipart/form-data" method="post">
+		{{ csrf_field() }}
 		<!-- ISBN -->
 		<div class="form-group">
 			<label for="campo-isbn">ISBN:</label>

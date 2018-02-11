@@ -13,7 +13,7 @@ class LivroController extends Controller {
         ];
         return view('livros.listar', ['livros' => $livros]);
     }
-
+    
     public function visualizar(int $id) {
         return view('livros.visualizar');
     }
@@ -24,5 +24,9 @@ class LivroController extends Controller {
 
     public function editar(int $id) {
         return view('livros.edicao');
+    }
+
+    public function atualizar(Request $request) {
+        $request->capa->storeAs('public/livros', 'livro_01.jpg');
     }
 }
