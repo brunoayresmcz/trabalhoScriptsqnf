@@ -1,34 +1,37 @@
 	@extends('template')
 	
 	@section('conteudo_principal')
-	<h1>Cadastro de Livros</h1>
+	<h1>Edição de Livros</h1>
 
 	<!-- ERRO NO CADASTRO -->
-	<div class="alert alert-danger">
-		<strong>Erro!</strong>
-		<p> Informe o título do livro</p>
-	</div>
+	@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Erro!</strong>
+		@foreach ($errors->all() as $error)
+			<p>{{ $error }}</p>
+		@endforeach
+    </div>
+	@endif
 	<!-- [FIM] ERRO -->
-
 
 	<form action="{{route('livros.atualizar')}}" enctype="multipart/form-data" method="post">
 		{{ csrf_field() }}
 		<!-- ISBN -->
 		<div class="form-group">
 			<label for="campo-isbn">ISBN:</label>
-			<input type="number" class="form-control" id="campo-isbn">
+			<input type="number" class="form-control" id="campo-isbn" name="isbn">
 		</div>
 		
 		<!-- TITULO -->
 		<div class="form-group">
 			<label for="campo-titulo">Título:</label>
-			<input type="text" class="form-control" id="campo-titulo">
+			<input type="text" class="form-control" id="campo-titulo"  name="titulo">
 		</div>
 			
 		<!-- AUTOR -->
 		<div class="form-group">
-			<label for="campo-email">Autor:</label>
-			<input type="email" class="form-control" id="campo-email">
+			<label for="campo-autor">Autor:</label>
+			<input type="text" class="form-control" id="campo-autor"  name="autor">
 		</div>
 
 		<!-- CATEGORIA -->
@@ -58,6 +61,6 @@
 			<img src="http://lorempixel.com/200/200" class="img-rounded">
 		</div>
 
-		<button type="submit" class="btn btn-default">Cadastrar</button>				
+		<button type="submit" class="btn btn-default">Editar</button>				
 	</form>
 	@endsection
