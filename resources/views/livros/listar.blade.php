@@ -30,4 +30,6 @@
 			</tbody>
 			<!-- DADOS [FIM] -->
 		</table>
+
+		{{$paginacao}}
 	@endsection

@@ -23,8 +23,8 @@
 				<li class="dropdown active">
 					<a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">Livros<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="{{route('livros.listar')}}">Listar</a></li>
-						<li class="active"><a href="{{route('livros.cadastrar')}}">Cadastrar</a></li>
+						<li @if(isset($submenu) && $submenu == 'listar') class="active" @endif><a href="{{route('livros.listar')}}">Listar</a></li>
+						<li @if(isset($submenu) && $submenu == 'cadastrar') class="active" @endif><a href="{{route('livros.cadastrar')}}">Cadastrar</a></li>
 					</ul>
 				</li> 
 

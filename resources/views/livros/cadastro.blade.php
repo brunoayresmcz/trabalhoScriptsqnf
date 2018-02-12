@@ -56,9 +56,6 @@
 	<div class="form-group">
 		<label for="campo-capa">Capa:</label>
 		<input type="file" id="campo-capa" name="capa"/>
-
-		<br/>
-		<img src="http://lorempixel.com/200/200" class="img-rounded">
 	</div>
 
 	<button type="submit" class="btn btn-default">Cadastrar</button>				
