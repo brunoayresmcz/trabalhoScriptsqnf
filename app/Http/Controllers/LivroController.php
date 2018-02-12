@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Livro;
 
 class LivroController extends Controller {
     
     /** Abre a View com a listagem de livros */
     public function listar() {
-        $livros = [
-            ['id'=> '1', 'isbn' => '1111111', 'titulo' => 'Harry Potter', 'autor'=> 'J. K. Rowling'],
-            ['id'=> '2', 'isbn' => '2222222', 'titulo' => 'Senhor dos Aneis', 'autor'=> 'J. R. R. Tolkien']
-        ];
+        $livros = Livro::all();
         return view('livros.listar', ['livros' => $livros]);
     }
     
@@ -34,16 +32,20 @@ class LivroController extends Controller {
             'resumo'    => 'required',
             'capa'      => 'image|required'
         ]);
+
+        Livro::create($request->all());
+
         return redirect()->route('livros.listar');
     }
 
     /** Abre a tela com a view de edição do livro */
     public function editar(int $id) {
-        return view('livros.edicao');
+        $livro = Livro::find($id);
+        return view('livros.edicao', ['livro' => $livro]);
     }
 
     /** Tenta atualizar o livro */
-    public function atualizar(Request $request) {
+    public function atualizar(Request $request, $id) {
         $request->validate([
             'isbn'      => 'required|integer',
             'titulo'    => 'required',
@@ -51,6 +53,14 @@ class LivroController extends Controller {
             'resumo'    => 'required',
             'capa'      => 'image|max:1024'
         ]);
+
+        Livro::where('id', $id)->update($request->except(['_token']));
+        return redirect()->route('livros.listar');
+    }
+
+    /** Remove um livro do banco */
+    public function excluir($id) {
+        Livro::destroy($id);
         return redirect()->route('livros.listar');
     }
 }

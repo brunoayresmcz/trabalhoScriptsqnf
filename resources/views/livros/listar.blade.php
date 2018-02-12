@@ -23,7 +23,7 @@
 					<td>
 						<a href="{{route('livros.visualizar', ['id' => $livro['id']])}}">Visualizar</a>
 						<a href="{{route('livros.editar', ['id' => $livro['id']])}}">Editar</a>
-						<a href="">Excluir</a>
+						<a href="{{route('livros.excluir', ['id' => $livro['id']])}}">Excluir</a>
 					</td>
 				</tr>
 				@endforeach	 

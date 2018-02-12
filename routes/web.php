@@ -14,7 +14,8 @@ Route::group(['prefix' => '/livros', 'middleware' => ['login']], function() {
     Route::post('/salvar', 'LivroController@salvar')->name('livros.salvar');
     Route::get('/{id}', 'LivroController@visualizar')->name('livros.visualizar');
     Route::get('/editar/{id}', 'LivroController@editar')->name('livros.editar');
-    Route::post('/atualizar', 'LivroController@atualizar')->name('livros.atualizar');
+    Route::post('/atualizar/{id}', 'LivroController@atualizar')->name('livros.atualizar');
+    Route::get('/excluir/{id}', 'LivroController@excluir')->name('livros.excluir');
 });
 
 
