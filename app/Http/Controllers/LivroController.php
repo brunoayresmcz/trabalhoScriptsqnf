@@ -47,7 +47,7 @@ class LivroController extends Controller {
    
     /** Abre a view com a tela de cadastro */
     public function cadastrar() {
-        $dados = ['submenu' => 'cadastrar'];
+        $dados = ['submenu' => 'cadastrar', 'livro' => new Livro()];
         return view('livros.cadastro', $dados);
     }
 
