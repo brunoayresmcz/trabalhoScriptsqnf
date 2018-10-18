@@ -10,20 +10,22 @@ class LoginController extends Controller {
     public function login() {
         return view('login');
     }
+    public function cadastrar() {
+        return view('registro');
+    }
+    
     
     /** Tenta realizar o login */
     public function logar(Request $request) {
 
-        if ($request->email == 'teste@teste.com' && $request->senha == '123456') {
-            session(['usuario' => 'Carlos']);
-            return redirect()->route('livros.listar');
+        if ($request->username == 'teste@educ.com' && $request->password == '123456') {
+            return redirect()->route('sismain');
         }
         return redirect()->route('login')->with('erro', 'Senha ou Login inválido');
     }
 
     /** Desloga o usuário */
     public function logout(Request $request) {
-        $request->session()->flush();
         return redirect()->route('login'); 
     }
 }
