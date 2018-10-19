@@ -20,7 +20,7 @@ class LoginController extends Controller {
 
         if ($request->username == 'teste@educ.com' && $request->password == '123456') {
             return redirect()->route('sismain');
-        }
+        }else
         return redirect()->route('login')->with('erro', 'Senha ou Login inválido');
     }
 

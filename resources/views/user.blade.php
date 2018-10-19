@@ -24,10 +24,13 @@
 			<div class="content">
 				<article class="topcontent"></article>
 				<header>
-					<h2><a href="#" title="First post">Cadastro de Professor</a></h2>
+					<h2><a href="#" title="First post">Iinformações de Usuário</a></h2>
 				</header>
 				<footer>
-					<p class="post-info">Insira as informações abaixo</p>
+					<p class="post-info">Nome: Bruno</p>
+					<p class="post-info">Nascimento: 11/07/1992</p>
+					<p class="post-info">Informações de usuário</p>
+					<p class="post-info">etc.</p>
 				</footer>
 
 				

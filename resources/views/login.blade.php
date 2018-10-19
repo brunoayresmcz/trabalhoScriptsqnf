@@ -28,7 +28,8 @@
 	               <div class="panel-title text-center">
 	               		<h1 class="title">Educação</h1>
 	               		<hr />
-	               	</div>
+					   </div>
+				
 	            </div> 
 				<div class="main-login main-center">
 					<form class="form-horizontal" method="post" action="{{route('logar')}}">
@@ -58,7 +59,14 @@
 						</div>
 						<div class="login-register">
 						<a href="{{route('registro')}}">Não possui conta? Criar conta</a>
-				         </div>
+						 </div>
+						 <!--senha errada -->
+				@if(session('erro'))
+				<div class="alert alert-danger">
+					<strong>Erro!</strong>{{session('erro')}}
+				</div>
+				@endif
+				<!-- fim senha errada-->
 					</form>
 				</div>
 			</div>

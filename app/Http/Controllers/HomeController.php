@@ -14,7 +14,7 @@ class HomeController extends Controller {
         return view('cadastroProfessor');
     }
     public function user() {
-        return view('Usuario');
+        return view('user');
     }
 }
 
